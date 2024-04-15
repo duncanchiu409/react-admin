@@ -91,7 +91,7 @@ function Sidebar() {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../user.png`}
+                  src={`../../profile.jpeg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
