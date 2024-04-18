@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, colors } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -51,13 +51,104 @@ const Form = () => {
           handleBlur,
           handleChange,
           handleSubmit,
-        }) => (<form onSubmit={handleSubmit}>
-          <Box display="grid" gap="30px" gridTemplateColumns="repeat(4, minmax(0, 1fr))" sx={{ "& > div": {
-            gridColumn: isNonMobile ? undefined : "span 4"
-          } }}>
-            <TextField fullWidth variant="filled" type="text" label="First Name" onBlur={handleBlur} onChange={handleChange} value={values.firstName} error={!!touched.firstName} />
-          </Box>
-        </form>)}
+        }) => (
+          <form onSubmit={handleSubmit}>
+            <Box
+              display="grid"
+              gap="30px"
+              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+              sx={{
+                "& > div": {
+                  gridColumn: isNonMobile ? undefined : "span 4",
+                },
+              }}
+            >
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="First Name"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.firstName}
+                error={!!touched.firstName && !!errors.firstName}
+                name="firstName"
+                helperText={touched.firstName && errors.firstName}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Last Name"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.lastName}
+                error={!!touched.lastName && !!errors.lastName}
+                name="lastName"
+                helperText={touched.lastName && errors.lastName}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Email"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.email}
+                error={!!touched.email && !!errors.email}
+                name="email"
+                helperText={touched.email && errors.email}
+                sx={{ gridColumn: "span 4" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Contact Number"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.contact}
+                error={!!touched.contact && !!errors.contact}
+                name="contact"
+                helperText={touched.contact && errors.contact}
+                sx={{ gridColumn: "span 4" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Address 1"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.address1}
+                error={!!touched.address1 && !!errors.address1}
+                name="address1"
+                helperText={touched.address1 && errors.address1}
+                sx={{ gridColumn: "span 4" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Address 2"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.address2}
+                error={!!touched.address2 && !!errors.address2}
+                name="address2"
+                helperText={touched.address2 && errors.address2}
+                sx={{ gridColumn: "span 4" }}
+              />
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: 'end', mt: '20px' }}>
+              <Button type="submit" color="secondary" variant="contained">
+                Create New User
+              </Button>
+            </Box>
+          </form>
+        )}
       </Formik>
     </Box>
   );
